@@ -1,1 +1,20 @@
 .idea
+
+# Dependency directories
+node_modules/
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Allure results
+allure-results
+allure-report
+
+# Text output files
+*.txt
+
+# Logs
+logs
+*.log
+npm-debug.log*
