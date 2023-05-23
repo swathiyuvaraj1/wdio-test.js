@@ -6,17 +6,16 @@
 
 const Utils = require("../Utilities/Utils.js");
 const Constants = require("../configurations/constants.js");
-const Commons = require("../pages/commons.page.js");
 const LandingPage = require("../pages/landing.page");
 const LoginPage = require("../pages/login.page");
 
-suite("FormHouse_login test validations", () => {
-  test("Access_FormHouseSite_ViewLoginPage", async () => {
+suite("Login test validations", () => {
+  test("Access_Site_ViewLoginPage", async () => {
     await Utils.testDetailsForReport(
       "Positive",
       "Verify whether user is able to view Login page with " +
         "Forgot password link text by selecting Login button " +
-        "from Formhouse landing page",
+        "from landing page",
       "Verify Landing Page Title:"
     );
     await expect(browser).toHaveTitle(Constants.LANDING_PAGE_TITLE);
@@ -29,6 +28,5 @@ suite("FormHouse_login test validations", () => {
     await Utils.testStepForReport("View Login Page:");
     await Utils.waitForExist(LoginPage.forgotPwdLinkTxt, Constants.LONG_WAIT);
     await expect(LoginPage.forgotPwdLinkTxt).toBeDisplayed();
-    await expect(Commons.googleSignInBtn).toBeDisplayed();
   });
 });

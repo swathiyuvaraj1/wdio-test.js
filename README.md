@@ -9,8 +9,11 @@
 Install
 
 - Node 18.12.1
-- Python 3.11.0 (Windows user need to install manually, others have Python pre-installed)
 - NVM (Recommended to switch between multiple node versions)
+
+In case of any error related to python, install
+
+- Python 3.11.0 (Windows user need to install manually, others have Python pre-installed)
 
 ---
 
@@ -41,7 +44,6 @@ From the terminal of `wdio_base`, run the below cmds
         - GUI=false (headless mode)
         - SITE_URL=siteURL
         - USER_EMAIL_ID=activeUser@email.com
-        - PREMIUM_USER_EMAIL_ID=premiumuser@email.com
         - PASSWORD=*****
         - DOCKER_SERVICE=true (If false, chrome driver service will be used)
         - GOOGLE_CHAT_WEBHOOK=webhookUrl (Upon test execution completion, test status pass/fail will be notified to channel)

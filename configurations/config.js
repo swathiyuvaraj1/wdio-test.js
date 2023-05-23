@@ -10,14 +10,9 @@ module.exports = {
 
   siteURL: process.env.SITE_URL,
   loginEmailId: process.env.USER_EMAIL_ID,
-  premiumUserEmailId: process.env.PREMIUM_USER_EMAIL_ID,
   loginPassword: process.env.PASSWORD,
   invalidEmailId: "notanuser@test.com",
   invalidPassword: "invaliduser",
-  password: "userpwd",
-
-  firstName: "uitest",
-  lastName: "user",
   emailPrefix: "wdio",
   pwdMismatch: "mismatch",
   invalidEmail: "test.user.com",

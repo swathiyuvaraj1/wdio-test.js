@@ -1,5 +1,5 @@
 {
-  "name": "formhouse-ui-tests",
+  "name": "wdio_base",
   "version": "1.0.0",
   "description": "WebdriverIO Javascript Mocha framework (TDD)",
   "main": "index.js",

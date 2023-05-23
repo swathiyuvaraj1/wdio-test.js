@@ -20,7 +20,7 @@ services:
     container_name: wdio-test
     #shm_size: 2gb
     depends_on:
-      - formhouse
+      - site
       - chrome
       - firefox
       - edge
@@ -29,7 +29,7 @@ services:
     environment:
       - GUI=false
       - DOCKER_SERVICE=true
-      - SITE_URL=${FORMHOUSE_SITE_URL:-http://site-dev:3000}
+      - SITE_URL=${SITE_URL:-http://site-dev:3000}
       - SUITE_NAME=${SUITE_NAME}
       - USER_EMAIL_ID=wdio@test.com
       - PASSWORD=wdiouser

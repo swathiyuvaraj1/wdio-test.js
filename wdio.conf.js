@@ -277,7 +277,6 @@ exports.config = {
       await Utils.maxWindow();
       await Utils.launchSite();
       await Utils.testStepForReport("Site Loaded:");
-      await Utils.waitForExist(LandingPage.formHouseLogo, Constants.LONG_WAIT);
       await expect(LandingPage.signUpBtn).toBeDisplayed();
       await Utils.waitFor(Constants.VERY_SHORT_WAIT);
       await LandingPage.handlingCookiePrivacyPolicyPopup();
