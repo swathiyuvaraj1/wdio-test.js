@@ -5,7 +5,7 @@ const Utils = require("./Utilities/Utils.js");
 const Constants = require("./configurations/constants.js");
 const LoginPage = require("./pages/login.page.js");
 const LandingPage = require("./pages/landing.page.js");
-const HomePage = require("./pages/commons.page.js");
+const HomePage = require("./pages/home.page");
 const path = require("node:path");
 const Dotenv = require("dotenv");
 Dotenv.config();
@@ -55,8 +55,6 @@ exports.config = {
   specs: ["./test/specs/**/*.js"],
   suites: {
     logintest: ["./test/login.test.js"],
-    titlecheck: ["./test/titlecheck.ts"],
-    signintest: ["./test/signin.test.js"],
   },
   // Patterns to exclude.
   exclude: [
@@ -364,28 +362,28 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  // onComplete: async function (exitCode, config, capabilities, results) {
-  //   if (exitCode == "1") {
-  //     console.log("onComplete Fail - " + exitCode);
-  //     await Utils.shareTestStatusViaWebhook(
-  //       googleChatWebhookUrl,
-  //       "WDIO - Test Execution completed \n Check allure report, Some test FAILED with build: " +
-  //         Config.buildId
-  //     );
-  //     //Check for Emoji :sparkles: :cross-mark:
-  //   } else {
-  //     console.log("onComplete Success - " + exitCode);
-  //     await Utils.shareTestStatusViaWebhook(
-  //       googleChatWebhookUrl,
-  //       "WDIO - Test Execution completed \n Image will be deployed, All test PASSED with build: " +
-  //         Config.buildId
-  //     );
-  //   }
-  //   await Utils.writeToFile(
-  //     Constants.EXIT_CODE_TXT_FILENAME,
-  //     exitCode.toString()
-  //   );
-  // },
+  onComplete: async function (exitCode, config, capabilities, results) {
+    if (exitCode == "1") {
+      console.log("onComplete Fail - " + exitCode);
+      await Utils.shareTestStatusViaWebhook(
+        googleChatWebhookUrl,
+        "WDIO - Test Execution completed \n Check allure report, Some test FAILED with build: " +
+          Config.buildId
+      );
+      //Check for Emoji :sparkles: :cross-mark:
+    } else {
+      console.log("onComplete Success - " + exitCode);
+      await Utils.shareTestStatusViaWebhook(
+        googleChatWebhookUrl,
+        "WDIO - Test Execution completed \n Image will be deployed, All test PASSED with build: " +
+          Config.buildId
+      );
+    }
+    await Utils.writeToFile(
+      Constants.EXIT_CODE_TXT_FILENAME,
+      exitCode.toString()
+    );
+  },
   /**
    * Gets executed when a refresh happens.
    * @param {String} oldSessionId session ID of the old session

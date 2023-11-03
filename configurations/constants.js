@@ -5,7 +5,7 @@
  * ***/
 
 module.exports = {
-  LANDING_PAGE_TITLE: "Free Custom Form SaaS API - Form to Sheet, Mail, Discord, Slack, Telegram and more | FormHouse",
+  LANDING_PAGE_TITLE: "pageTitle",
   INVALID_DETAILS_ERR_MSG: "Invalid Details",
   ENTER_VALID_DATA_ERR_MSG_TXT: "Please Enter Valid Details",
 
