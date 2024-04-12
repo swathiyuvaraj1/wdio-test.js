@@ -10,6 +10,9 @@
     "saucedemotest": "npx wdio wdio.conf.js --suite saucedemotest"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/register": "^7.23.7",
     "@wdio/allure-reporter": "^7.26.0",
     "@wdio/cli": "^7.36.0",
     "@wdio/local-runner": "^8.0.9",
