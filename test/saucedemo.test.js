@@ -1,12 +1,11 @@
 const Utils = require("../Utilities/Utils.js");
-const config = require('.configurations/config.js');
 const SauceDemo = require("../pages/saucedemo.page.js");
 
-
 suite("Login test validations", () => {
+  
   before(async () => {
-    //await Utils.launchSite("https://www.saucedemo.com/");
-    await Utils.launchSite(config.baseUrl);
+    await Utils.launchSite("https://www.saucedemo.com/");
+    //await Utils.launchSite(config.baseUrl);
     const swagLabsTextPresent = await SauceDemo.verifySwagLabsText();
     expect(swagLabsTextPresent).to.be.true;
   });
@@ -84,7 +83,6 @@ suite("Login test validations", () => {
     expect(errorMessageText).to.include('Epic sadface: Username is required');
   });
 
-
   test("should show error message for empty password", async () => {
     // Perform login action with empty username
     await SauceDemo.login('standard_user', '');
@@ -102,4 +100,3 @@ suite("Login test validations", () => {
     expect(errorMessageText).to.include('Epic sadface: Password is required');
   });
 });
-

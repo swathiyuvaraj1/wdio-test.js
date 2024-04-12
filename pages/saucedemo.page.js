@@ -1,86 +1,59 @@
-// class SauceDemo {
-//     get usernameInput() {
-//       return $("//input[@id='user-name']");
-//     }
-    
-//     get passwordInput() {
-//       return $("//input[@id='password']");
-//     }
-    
-//     get loginButton() {
-//       return $("//input[@id='login-button']");
-//     }
-    
-//     get swaglabsText() {
-//       return $("//div[text()='Swag Labs']");
-//     }
-//   }
-  
-//   export default new SauceDemo();
-
-//   //h3[@data-test ='error' and contains(text(), 'Epic sadface: Username and password do not match any user in this service')]
-//     //h3[@data-test ='error' and contains(text(), 'Epic sadface: Username is required')]
-//       //h3[@data-test ='error' and contains(text(), 'Epic sadface: Password is required')]
-
-
-//   after clicking login button it should navigate to this url- > https://www.saucedemo.com/inventory.html
-
-//   //button [@id ='react-burger-menu-btn']
-//   //a[contains(text(),'Logout')]
 class SauceDemo {
-  get usernameInput() {
-      return $("//input[@id='user-name']");
-  }
-
-  get passwordInput() {
-      return $("//input[@id='password']");
-  }
-
-  get loginButton() {
-      return $("//input[@id='login-button']");
-  }
-
-  get swaglabsText() {
-      return $("//div[text()='Swag Labs']");
-  }
-
-  async verifySwagLabsText() {
-      await this.swaglabsText.waitForExist({ timeout: 10000 });
-      return await this.swaglabsText.isDisplayed();
-  }
-
-  async login(username = config.username, password = config.password) {
-    if (!username && !password) {
-        // Click the login button directly if both username and password are empty
-        await this.loginButton.click();
-        return;
+    
+    get usernameInput() {
+        return $("//input[@id='user-name']");
     }
-    if (username) {
-        await this.usernameInput.setValue(username);
+  
+    get passwordInput() {
+        return $("//input[@id='password']");
     }
-    if (password) {
-        await this.passwordInput.setValue(password);
+  
+    get loginButton() {
+        return $("//input[@id='login-button']");
     }
-    await this.loginButton.click();
-}
-
-  async findErrorMessage(errorMessage) {
-    const xpath = `//h3[@data-test ='error' and contains(text(), '${errorMessage}')]`;
-    return await $(xpath);
-}
-
-async logout() {
-  // Click on the burger menu button
-  await $('button#react-burger-menu-btn').click();
-
-  // Click on the logout link in the menu
-  await $('a=Logout').click();
-}
-
-  async navigateToInventoryPage() {
-      await browser.waitUntil(async () => {
-          return (await browser.getUrl()) === 'https://www.saucedemo.com/inventory.html';
-      }, { timeout: 10000, timeoutMsg: 'Failed to navigate to inventory page' });
+  
+    get swaglabsText() {
+        return $("//div[text()='Swag Labs']");
+    }
+  
+    async verifySwagLabsText() {
+        await this.swaglabsText.waitForExist({ timeout: 10000 });
+        return await this.swaglabsText.isDisplayed();
+    }
+  
+    async login(username, password) {
+      if (!username && !password) {
+          // Click the login button directly if both username and password are empty
+          await this.loginButton.click();
+          return;
+      }
+      if (username) {
+          await this.usernameInput.setValue(username);
+      }
+      if (password) {
+          await this.passwordInput.setValue(password);
+      }
+      await this.loginButton.click();
   }
-}
-export default new SauceDemo();
+  
+    async findErrorMessage(errorMessage) {
+      const xpath = `//h3[@data-test ='error' and contains(text(), '${errorMessage}')]`;
+      return await $(xpath);
+  }
+  
+  async logout() {
+    // Click on the burger menu button
+    await $('button#react-burger-menu-btn').click();
+  
+    // Click on the logout link in the menu
+    await $('a=Logout').click();
+  }
+  
+    async navigateToInventoryPage() {
+        await browser.waitUntil(async () => {
+            return (await browser.getUrl()) === 'https://www.saucedemo.com/inventory.html';
+        }, { timeout: 10000, timeoutMsg: 'Failed to navigate to inventory page' });
+    }
+  }
+  export default new SauceDemo();
+  

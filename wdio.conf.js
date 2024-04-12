@@ -3,11 +3,12 @@
 const Config = require("./configurations/config.js");
 const Utils = require("./Utilities/Utils.js");
 const Constants = require("./configurations/constants.js");
-const LoginPage = require("./pages/login.page.js");
+//const LoginPage = require("./pages/login.page.js");
 const LandingPage = require("./pages/landing.page.js");
-const HomePage = require("./pages/home.page");
+//const HomePage = require("./pages/home.page");
 const path = require("node:path");
 const Dotenv = require("dotenv");
+const { default: saucedemoPage } = require("./pages/saucedemo.page.js");
 Dotenv.config();
 
 let gui = process.env.GUI;
@@ -52,10 +53,11 @@ exports.config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./test/specs/**/*.js"],
+  specs: ["./test/specs/**/*.js",
+  "./test/saucedemo.test.js"],
   suites: {
     logintest: ["./test/login.test.js"],
-    saucedemotest: [".wdio-test/test/saucedemo.test.js"],
+    //saucedemoPage: ["./test/saucedemo.test.js"],
   },
   // Patterns to exclude.
   exclude: [
