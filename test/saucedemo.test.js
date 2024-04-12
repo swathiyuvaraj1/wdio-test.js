@@ -2,10 +2,10 @@ const Utils = require("../Utilities/Utils.js");
 const SauceDemo = require("../pages/saucedemo.page.js");
 
 suite("Login test validations", () => {
-  
+
   before(async () => {
-    await Utils.launchSite("https://www.saucedemo.com/");
-    //await Utils.launchSite(config.baseUrl);
+    //await Utils.launchSite("https://www.saucedemo.com/");
+    await Utils.launchSite(config.baseUrl);
     const swagLabsTextPresent = await SauceDemo.verifySwagLabsText();
     expect(swagLabsTextPresent).to.be.true;
   });
@@ -16,7 +16,7 @@ suite("Login test validations", () => {
       "Verify successful login"
     );
     await SauceDemo.login('standard_user', 'secret_sauce');
-    await navigateToInventoryPage();
+    await SauceDemo.navigateToInventoryPage();
     // Add assertions here to verify the successful login and navigation
   });
 
@@ -41,7 +41,7 @@ suite("Login test validations", () => {
     // Add assertions here to verify logout success
     // For example:
     // assert that login button is displayed on the login page
-    await expect(SauceDemo.loginButton).to.exist;
+    await expect(loginButton).to.exist;
   });
 
   test("should not login with invalid username and password", async () => {
@@ -54,7 +54,7 @@ suite("Login test validations", () => {
     await SauceDemo.login('swathi', '12345678');
 
     // Find the error message element using the custom function and pass the error comment
-    const errorMessageElement = await Utils.findErrorMessage('Epic sadface: Username and password do not match any user in this service');
+    const errorMessageElement = await SauceDemo.findErrorMessage('Epic sadface: Username and password do not match any user in this service');
 
     // Wait for the error message element to be displayed
     await errorMessageElement.waitForExist({ timeout: 10000 });
