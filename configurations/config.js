@@ -1,20 +1,5 @@
-/***
- * All Test configuration data like below can be kept here & from here we can pass the
- * values/refer to multiple tests and execute tests based on the value
- * Sample values as below:
- * ***/
-
-module.exports = {
-  dockerService: process.env.DOCKER_SERVICE,
-  buildId: process.env.BUILD,
-
-  siteURL: process.env.SITE_URL,
-  loginEmailId: process.env.USER_EMAIL_ID,
-  loginPassword: process.env.PASSWORD,
-  invalidEmailId: "notanuser@test.com",
-  invalidPassword: "invaliduser",
-  emailPrefix: "wdio",
-  pwdMismatch: "mismatch",
-  invalidEmail: "test.user.com",
-  validEmail: "test@user.com",
-};
+export default {
+    url: 'https://www.saucedemo.com/',
+    username: 'your_default_username',
+    password: 'your_default_password'
+  };

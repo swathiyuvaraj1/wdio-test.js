@@ -55,6 +55,7 @@ exports.config = {
   specs: ["./test/specs/**/*.js"],
   suites: {
     logintest: ["./test/login.test.js"],
+    saucedemotest: [".wdio-test/test/saucedemo.test.js"],
   },
   // Patterns to exclude.
   exclude: [
