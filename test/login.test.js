@@ -5,7 +5,7 @@
  * ***/
 
 const Utils = require("../Utilities/Utils.js");
-const Constants = require("../configurations/constants.js");
+const Constants = require("../configurations/config.js");
 const LandingPage = require("../pages/landing.page");
 const LoginPage = require("../pages/login.page");
 
