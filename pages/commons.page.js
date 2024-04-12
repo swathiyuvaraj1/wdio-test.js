@@ -4,7 +4,7 @@
  * Sample values as below:
  * ***/
 
-const Utils = require("../Utilities/Utils.js");
+const Utils = require("../Utilities/Utils.js").default;
 const Constants = require("../configurations/constants.js");
 class Commons {
   /**

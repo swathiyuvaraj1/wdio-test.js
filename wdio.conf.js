@@ -1,7 +1,7 @@
 //const GoogleChatService = require("./webhook.js");
 //wdio-google-chat-service - Version incompatible with wdio v8, getting error
 const Config = require("./configurations/config.js");
-const Utils = require("./Utilities/Utils.js");
+const Utils = require("./Utilities/Utils.js").default;
 const Constants = require("./configurations/constants.js");
 //const LoginPage = require("./pages/login.page.js");
 const LandingPage = require("./pages/landing.page.js");

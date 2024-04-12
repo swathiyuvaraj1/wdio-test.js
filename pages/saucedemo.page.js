@@ -55,5 +55,5 @@ class SauceDemo {
         }, { timeout: 10000, timeoutMsg: 'Failed to navigate to inventory page' });
     }
   }
-  export default new SauceDemo();
+  module.exports = new SauceDemo();
   
