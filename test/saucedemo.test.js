@@ -1,6 +1,7 @@
-import Utils from "../Utilities/Utils.js";
-import config from '.configurations/config.js';
-import SauceDemo from "../pages/saucedemo.page.js";
+const Utils = require("../Utilities/Utils.js");
+const config = require('.configurations/config.js');
+const SauceDemo = require("../pages/saucedemo.page.js");
+
 
 suite("Login test validations", () => {
   before(async () => {
